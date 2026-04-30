@@ -4,6 +4,10 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: justine-portfolio
-    ports:
-      - "80:80"
     restart: unless-stopped
+    networks:
+      - gateway
+
+networks:
+  gateway:
+    external: true
