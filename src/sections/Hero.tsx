@@ -65,9 +65,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="aspect-[3/4] border border-brand-border/50 bg-brand-surface relative overflow-hidden group shadow-xl"
           >
-            <img 
-              src="https://media.licdn.com/dms/image/v2/D4E03AQGI4naSd0KulA/profile-displayphoto-crop_800_800/B4EZnaBtyRHgAI-/0/1760299508590?e=1778716800&v=beta&t=oZZd77lbfgXZq1ZTARoOnB7d2REeMn84LruDoScS744AB" 
-              alt="Justine Peterson Mahinyila" 
+            <img
+              src="/justine.jpg"
+              alt="Justine Peterson Mahinyila"
               className="w-full h-full object-cover grayscale-[20%] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
             />
             {/* Grid pattern overlay */}
