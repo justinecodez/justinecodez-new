@@ -65,11 +65,17 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="aspect-[3/4] border border-brand-border/50 bg-brand-surface relative overflow-hidden group shadow-xl"
           >
-            <img
-              src="/justine.jpg"
-              alt="Justine Peterson Mahinyila"
-              className="w-full h-full object-cover grayscale-[20%] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
-            />
+            <picture>
+              <source srcSet="/justine.webp" type="image/webp" />
+              <img
+                src="/justine.jpg"
+                alt="Justine Peterson Mahinyila"
+                className="w-full h-full object-cover grayscale-[20%] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                loading="eager"
+                width={800}
+                height={738}
+              />
+            </picture>
             {/* Grid pattern overlay */}
             <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none mix-blend-overlay" />
           </motion.div>
