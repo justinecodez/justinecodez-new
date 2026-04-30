@@ -3,7 +3,8 @@
     "allow": [
       "Bash(sips -g pixelWidth -g pixelHeight /Users/justinemahinyila/Codez/justinecodez-new/public/justine.jpg)",
       "Bash(brew list *)",
-      "Bash(cwebp -q 82 -resize 800 0 /Users/justinemahinyila/Codez/justinecodez-new/public/justine.jpg -o /Users/justinemahinyila/Codez/justinecodez-new/public/justine.webp)"
+      "Bash(cwebp -q 82 -resize 800 0 /Users/justinemahinyila/Codez/justinecodez-new/public/justine.jpg -o /Users/justinemahinyila/Codez/justinecodez-new/public/justine.webp)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/justinemahinyila/Codez/justinecodez-new/public/og-image.png)"
     ]
   }
 }
