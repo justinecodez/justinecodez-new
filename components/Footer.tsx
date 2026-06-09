@@ -92,6 +92,7 @@ export function Footer() {
             </span>
           </div>
           <div className="text-[10px] font-mono text-brand-text-muted">
+            <span className="hidden sm:inline">curl justinecodez.com/api/me · </span>
             Built with intention. © {new Date().getFullYear()} {site.name}
           </div>
         </div>

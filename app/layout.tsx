@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CommandPalette } from "@/components/CommandPalette";
+import { ConsoleBanner } from "@/components/ConsoleBanner";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -110,6 +111,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <CommandPalette />
+        <ConsoleBanner />
       </body>
     </html>
   );
