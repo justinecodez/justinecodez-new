@@ -1,0 +1,101 @@
+<!-- justinecodez looping typewriter wordmark
+     Loop: justinecodez.com -> erase -> JustineCodez.com ("Codez" amber) -> erase -> repeat
+     Self-contained: paste into any HTML page. -->
+<style>
+  .jc-wordmark {
+    font-family: ui-monospace, 'Cascadia Mono', Menlo, Consolas, monospace;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    color: #17181C;
+    text-decoration: none;
+  }
+
+  .jc-cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 0.13em;
+    margin-left: 0.1em;
+    background: #17181C;
+    border-radius: 2px;
+    vertical-align: baseline;
+  }
+
+  .jc-cursor.idle {
+    animation: jc-blink 1.05s steps(1) infinite;
+  }
+
+  @keyframes jc-blink {
+
+    0%,
+    49% {
+      opacity: 1;
+    }
+
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<a href="/" class="jc-wordmark" aria-label="JustineCodez.com — home">
+  <span id="jc-text"></span><span id="jc-cursor" class="jc-cursor" aria-hidden="true"></span>
+</a>
+
+<script>
+  (function () {
+    var INK = "#17181C", AMBER = "#F08C00";
+    var phases = [
+      { text: "justinecodez.com", amber: null },
+      { text: "JustineCodez.com", amber: [7, 12] }   // "Codez"
+    ];
+    var el = document.getElementById("jc-text");
+    var cur = document.getElementById("jc-cursor");
+    var timer = null;
+
+    function render(phase, n) {
+      var s = phase.text, html = "";
+      if (phase.amber) {
+        var a = phase.amber[0], b = phase.amber[1];
+        html += '<span style="color:' + INK + '">' + s.slice(0, Math.min(n, a)) + "</span>";
+        if (n > a) html += '<span style="color:' + AMBER + '">' + s.slice(a, Math.min(n, b)) + "</span>";
+        if (n > b) html += '<span style="color:' + INK + '">' + s.slice(b, n) + "</span>";
+      } else {
+        html = '<span style="color:' + INK + '">' + s.slice(0, n) + "</span>";
+      }
+      el.innerHTML = html;
+    }
+
+    // Accessibility: reduced motion gets the final static state
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      render(phases[1], phases[1].text.length);
+      cur.classList.add("idle");
+      return;
+    }
+
+    var pi = 0, n = 0, deleting = false;
+    function tick() {
+      var phase = phases[pi], len = phase.text.length, delay;
+      if (!deleting) {
+        n++; render(phase, n); cur.classList.remove("idle");
+        if (n >= len) { deleting = true; cur.classList.add("idle"); delay = 1700; }
+        else delay = 70 + Math.random() * 60;     // human-ish keystroke timing
+      } else {
+        n--; render(phase, n); cur.classList.remove("idle");
+        if (n <= 0) { deleting = false; pi = (pi + 1) % phases.length; cur.classList.add("idle"); delay = 500; }
+        else delay = 38;                           // deleting is faster than typing
+      }
+      timer = setTimeout(tick, delay);
+    }
+
+    // Battery courtesy: pause the loop when the tab is hidden
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) { clearTimeout(timer); }
+      else { timer = setTimeout(tick, 400); }
+    });
+
+    timer = setTimeout(tick, 500);
+  })();
+</script>

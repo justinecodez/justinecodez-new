@@ -47,14 +47,29 @@ html {
   scroll-behavior: smooth;
 }
 
-/* jc wordmark logo (components/Logo.tsx) */
-@keyframes logo-draw {
-  to {
-    stroke-dashoffset: 0;
-  }
+/* Typewriter wordmark (components/Wordmark.tsx) */
+.jc-wordmark {
+  letter-spacing: -0.01em;
+  text-decoration: none;
 }
 
-@keyframes logo-blink {
+.jc-cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.13em;
+  margin-left: 0.1em;
+  background: currentColor;
+  border-radius: 2px;
+  vertical-align: baseline;
+}
+
+/* Cursor blinks only during pauses (solid while typing). Reduced-motion
+   users keep the blinking cursor by design — the wordmark itself is static. */
+.jc-cursor.jc-idle {
+  animation: jc-blink 1.05s steps(1) infinite;
+}
+
+@keyframes jc-blink {
   0%,
   49% {
     opacity: 1;
@@ -62,64 +77,6 @@ html {
   50%,
   100% {
     opacity: 0;
-  }
-}
-
-@keyframes logo-pop {
-  0% {
-    transform: scale(0);
-  }
-  70% {
-    transform: scale(1.25);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Resting state: fully drawn, cursor blinking */
-.logo .logo-cursor {
-  animation: logo-blink 1.1s steps(1) infinite;
-}
-
-/* Type-on state: draw strokes, pop the dot, then start blinking */
-.logo-animate .logo-j {
-  stroke-dasharray: 60;
-  stroke-dashoffset: 60;
-  animation: logo-draw 0.45s ease-out forwards;
-}
-
-.logo-animate .logo-c {
-  stroke-dasharray: 105;
-  stroke-dashoffset: 105;
-  animation: logo-draw 0.55s ease-out 0.35s forwards;
-}
-
-.logo-animate .logo-dot {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: logo-pop 0.35s ease-out 0.15s both;
-}
-
-.logo-animate .logo-cursor {
-  opacity: 0;
-  animation: logo-blink 1.1s steps(1) 1.15s infinite;
-}
-
-/* Blink pauses while the tab is hidden */
-.logo-paused .logo-cursor {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .logo .logo-j,
-  .logo .logo-c,
-  .logo .logo-dot,
-  .logo .logo-cursor {
-    animation: none !important;
-    stroke-dashoffset: 0 !important;
-    opacity: 1 !important;
-    transform: none !important;
   }
 }
 

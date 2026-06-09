@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Logo } from "@/components/Logo";
+import { Wordmark } from "@/components/Wordmark";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -43,14 +43,7 @@ export function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        <Link
-          href="/"
-          className="text-sm font-semibold tracking-tight text-brand-text flex items-center gap-2 group"
-          aria-label="justinecodez — home"
-        >
-          <Logo className="h-9 w-auto transition-transform group-hover:scale-105" />
-          <span className="hidden sm:inline-block">justinecodez</span>
-        </Link>
+        <Wordmark sessionKey="jc:wordmark-played" className="text-base md:text-lg" />
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">

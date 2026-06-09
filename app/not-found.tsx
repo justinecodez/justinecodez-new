@@ -1,9 +1,13 @@
 import { ButtonLink } from "@/components/Button";
+import { Wordmark } from "@/components/Wordmark";
 
 export default function NotFound() {
   return (
     <section className="pt-44 pb-28 min-h-[70vh]">
       <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
+        <div className="inline-block bg-[#17181C] rounded-md px-4 py-2.5 mb-8">
+          <Wordmark variant="paper" className="text-base" />
+        </div>
         <span className="text-brand-teal text-[11px] font-mono mb-4 block tracking-widest uppercase">
           {"// 404"}
         </span>

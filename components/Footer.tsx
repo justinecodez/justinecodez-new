@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { PageWeightBadge } from "@/components/PageWeightBadge";
+import { Wordmark } from "@/components/Wordmark";
 import { site, whatsappLink } from "@/lib/site";
 
 const footerLinks = [
@@ -20,6 +21,9 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           <div>
+            <div className="inline-block bg-[#17181C] rounded-md px-3 py-2 mb-3">
+              <Wordmark variant="paper" className="text-sm" />
+            </div>
             <div className="text-sm font-semibold text-brand-text mb-2">{site.name}</div>
             <p className="text-xs text-brand-text-muted leading-relaxed max-w-xs">
               Solution architect and software consultant in Dar es Salaam, Tanzania. Fintech
