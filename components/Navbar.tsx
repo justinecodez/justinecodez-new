@@ -71,6 +71,14 @@ export function Navbar() {
               </li>
             ))}
           </ul>
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("cmdk:open"))}
+            className="flex items-center gap-1.5 text-[10px] font-mono text-brand-text-muted border border-brand-border rounded-sm px-2 py-1.5 hover:border-brand-gold hover:text-brand-gold transition-colors"
+            aria-label="Open command palette"
+          >
+            <kbd>⌘</kbd>
+            <kbd>K</kbd>
+          </button>
           <Link
             href="/contact"
             className="bg-brand-gold text-white hover:bg-brand-gold-light rounded-sm px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] transition-colors"
