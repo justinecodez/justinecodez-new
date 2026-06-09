@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/work`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${site.url}/about`, lastModified, changeFrequency: "yearly", priority: 0.7 },
     { url: `${site.url}/contact`, lastModified, changeFrequency: "yearly", priority: 0.8 },
+    { url: `${site.url}/uses`, lastModified, changeFrequency: "monthly", priority: 0.4 },
+    { url: `${site.url}/now`, lastModified, changeFrequency: "weekly", priority: 0.5 },
   ];
 
   const studies: MetadataRoute.Sitemap = caseStudies.map((study) => ({

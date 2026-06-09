@@ -7,6 +7,8 @@ const footerLinks = [
   { name: "Work", href: "/work" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
+  { name: "Uses", href: "/uses" },
+  { name: "Now", href: "/now" },
 ];
 
 export function Footer() {

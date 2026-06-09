@@ -38,6 +38,8 @@ function buildItems(): Item[] {
     { id: "page-work", label: "Work / Case Studies", group: "Pages", icon: Briefcase, perform: ({ push }) => push("/work") },
     { id: "page-about", label: "About", group: "Pages", icon: User, perform: ({ push }) => push("/about") },
     { id: "page-contact", label: "Contact", group: "Pages", icon: Mail, perform: ({ push }) => push("/contact") },
+    { id: "page-uses", label: "Uses — stack & tools", group: "Pages", icon: Wrench, perform: ({ push }) => push("/uses") },
+    { id: "page-now", label: "Now — what I'm building", group: "Pages", icon: FileText, perform: ({ push }) => push("/now") },
   ];
 
   const actions: Item[] = [
