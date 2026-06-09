@@ -1,20 +1,50 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# justinecodez.com
 
-# Run and deploy your AI Studio app
+Personal consulting site for **Justine Peterson Mahinyila** — solution architect and software
+consultant in Dar es Salaam, Tanzania.
 
-This contains everything you need to run your app locally.
+Built with **Next.js (App Router, full static export)** + **Tailwind CSS v4**. Every page is
+pre-rendered HTML: readable without JavaScript, crawlable, and served by plain nginx.
 
-View your app in AI Studio: https://ai.studio/apps/eb767bfb-5c42-4da3-89d7-061775b9e95c
+## Structure
 
-## Run Locally
+| Route | Purpose |
+| --- | --- |
+| `/` | Positioning, services overview, featured case studies, segments, CTA |
+| `/services` | Six service offers, problem-framed, with Service JSON-LD |
+| `/work` | Case study portfolio with tag filters (Fintech, WhatsApp, Marketplaces, Events, Faith Tech, AI) |
+| `/work/[slug]` | Case study detail: Challenge → Solution → Stack → Outcome |
+| `/about` | Bio and track record |
+| `/contact` | Lead form + WhatsApp click-to-chat + email/LinkedIn/GitHub |
 
-**Prerequisites:**  Node.js
+Content lives in [lib/services.ts](lib/services.ts) and [lib/case-studies.ts](lib/case-studies.ts);
+site-wide constants (email, WhatsApp number, socials) in [lib/site.ts](lib/site.ts).
 
+## Develop
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # static export to ./out
+npm run lint     # typecheck
+```
+
+## Contact form backend (optional)
+
+Without configuration, the contact form composes a WhatsApp message. To use a hosted form
+backend (e.g. Formspree), set at build time:
+
+```bash
+NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/XXXXXXXX
+```
+
+## Deploy
+
+Docker multi-stage build → nginx serving the static `out/` directory:
+
+```bash
+docker compose up -d --build
+```
+
+SEO artifacts generated at build: `sitemap.xml`, `robots.txt`, per-page canonical URLs and
+OG tags, JSON-LD (Person, ProfessionalService, Service, CreativeWork).
