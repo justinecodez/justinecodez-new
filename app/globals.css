@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-bg: #f8fafc;
+  --color-brand-surface: #ffffff;
+  --color-brand-surface-alt: #f1f5f9;
+  --color-brand-surface-hover: #e2e8f0;
+  --color-brand-border: #e2e8f0;
+  --color-brand-border-light: #cbd5e1;
+
+  --color-brand-gold: #d97706;
+  --color-brand-gold-light: #f59e0b;
+  --color-brand-gold-muted: rgba(217, 119, 6, 0.15);
+  --color-brand-teal: #0f766e;
+  --color-brand-teal-muted: rgba(15, 118, 110, 0.15);
+
+  --color-brand-text: #0f172a;
+  --color-brand-text-muted: #475569;
+}
+
+body {
+  @apply bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-gold selection:text-white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-brand-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-border-light rounded-sm;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-text-muted;
+}
+
+html {
+  scroll-behavior: smooth;
+}
