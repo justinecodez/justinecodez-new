@@ -4,8 +4,8 @@ Visitor-facing TODO markers were removed from the site; everything pending lives
 
 ## Content & copy
 
-- [ ] **Confirm canonical email.** The site now uses `hi@justinecodez.com` ([lib/site.ts](../lib/site.ts)).
-      The old repo mixed `hi@justinecode.com` and `justinecodes.com` — verify which mailbox is real.
+- [x] **Confirm canonical email.** Confirmed: `hi@justinecodez.com` is the real mailbox
+      ([lib/site.ts](../lib/site.ts)).
 - [ ] **Case study metrics (add to `outcome` arrays in [lib/case-studies.ts](../lib/case-studies.ts) when cleared/available):**
   - CVM Campaign Engine — approved figures only (reach, volume, uplift), nothing client-identifying.
   - FIFA 2026 Rewards API — launch results once the campaign goes live.
@@ -39,8 +39,7 @@ Visitor-facing TODO markers were removed from the site; everything pending lives
 
 ## Deployment
 
-- [ ] **Push to GitHub** — local commits are ahead of `origin/main`; history was rewritten to
-      remove the employer name, so push before adding new remote work.
-- [ ] **Deploy** — `docker compose up -d --build` (nginx config already updated for the static
-      export, `/api/me`, and OG image content types).
+- [x] **Push to GitHub** — done (June 2026).
+- [ ] **Deploy** — Justine handles manually: `docker compose up -d --build` (nginx config already
+      updated for the static export, `/api/me`, and OG image content types).
 - [ ] **Lighthouse** — run against the deployed site and confirm 95+ performance.
