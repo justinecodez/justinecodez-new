@@ -9,6 +9,7 @@ const footerLinks = [
   { name: "Contact", href: "/contact" },
   { name: "Uses", href: "/uses" },
   { name: "Now", href: "/now" },
+  { name: "Changelog", href: "/changelog" },
 ];
 
 export function Footer() {
