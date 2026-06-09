@@ -135,7 +135,6 @@ export const caseStudies: CaseStudy[] = [
     stack: ["Next.js", "NestJS", "React", "PostgreSQL"],
     outcome: [
       "Live in testing at tangazamax.com with the full artist-to-product pipeline working: design upload, product generation, artist dashboards, and featured curation.",
-      "[TODO: add artist and sales numbers once out of testing]",
     ],
   },
   {
@@ -160,7 +159,6 @@ export const caseStudies: CaseStudy[] = [
     stack: ["Next.js (PWA, SSR)", "NestJS", "PostgreSQL", "React", "NFC", "Apple/Google Wallet"],
     outcome: [
       "Platform live with QR + NFC sharing, wallet passes, vCard save-to-contacts, lead capture, and analytics; NFC hardware pilot (cards, wristbands, key fobs) delivered for a client engagement.",
-      "[TODO: add user/lead-capture metrics when available]",
     ],
   },
   {
@@ -183,7 +181,6 @@ export const caseStudies: CaseStudy[] = [
     stack: ["Next.js", "NestJS", "PostgreSQL", "Signed QR / offline scanning"],
     outcome: [
       "Prototype complete for Envaita: per-guest links, RSVP flow, signed QR entry passes with offline scanning and first-scan marking, and the post-wedding keepsake mode.",
-      "[TODO: add results from first live weddings]",
     ],
   },
   {
@@ -206,7 +203,6 @@ export const caseStudies: CaseStudy[] = [
     stack: ["Meta WhatsApp Cloud API", "Node.js / TypeScript", "React", "Excel reporting"],
     outcome: [
       "Order-taking, customer records, and reporting now run through one system, on the same channel customers already preferred.",
-      "[TODO: add sales/efficiency figures from MPENYO]",
     ],
   },
   {
@@ -229,7 +225,6 @@ export const caseStudies: CaseStudy[] = [
     stack: ["Next.js", "NestJS", "PostgreSQL", "WhatsApp Cloud API"],
     outcome: [
       "In active development under Faith Fusion Digital, targeting Tanzanian denomination networks — built to be offered at mission-friendly rates.",
-      "[TODO: add pilot congregation results]",
     ],
   },
   {
@@ -252,7 +247,6 @@ export const caseStudies: CaseStudy[] = [
     stack: ["React", "NestJS", "PostgreSQL", "ClickPesa / MNO integrations", "TRA VFD"],
     outcome: [
       "In development: a point of sale designed for how Tanzanian restaurants actually take orders, get paid, and stay compliant.",
-      "[TODO: add pilot restaurant results]",
     ],
   },
   {

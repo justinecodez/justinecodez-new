@@ -40,14 +40,7 @@ function Block({ label, paragraphs }: { label: string; paragraphs: string[] }) {
         {`// ${label}`}
       </h2>
       {paragraphs.map((para, i) => (
-        <p
-          key={i}
-          className={`leading-relaxed mb-4 ${
-            para.startsWith("[TODO")
-              ? "text-brand-gold text-sm font-mono bg-brand-gold-muted px-3 py-2 rounded-sm"
-              : "text-brand-text-muted"
-          }`}
-        >
+        <p key={i} className="leading-relaxed mb-4 text-brand-text-muted">
           {para}
         </p>
       ))}

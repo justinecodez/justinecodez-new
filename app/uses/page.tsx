@@ -50,12 +50,7 @@ const groups: { name: string; items: { name: string; note: string }[] }[] = [
       { name: "Mobile money rails", note: "ClickPesa and MNO integrations for TZS payments." },
     ],
   },
-  {
-    name: "Hardware & Workspace",
-    items: [
-      { name: "[TODO: Justine to fill]", note: "Machine, monitor, keyboard, and the desk setup." },
-    ],
-  },
+  // Hardware & Workspace section pending — see docs/TODO.md
 ];
 
 export default function UsesPage() {
