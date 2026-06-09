@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `/work/${study.slug}`,
       title: `${study.title} | Case Study — Justine Mahinyila`,
       description: study.summary,
-      images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+      // og:image comes from the generated opengraph-image.tsx next to this file
     },
   };
 }

@@ -1,0 +1,18 @@
+/* TEAM */
+Architect, engineer, writer: Justine Peterson Mahinyila
+Site: https://justinecodez.com
+Contact: hi [at] justinecodez.com
+GitHub: @justinecodez
+Location: Dar es Salaam, Tanzania
+
+/* SITE */
+Stack: Next.js (static export), TypeScript, Tailwind CSS v4
+Served by: nginx in Docker
+Fonts: Inter & JetBrains Mono, self-hosted
+Languages: English, Kiswahili
+Trackers: none
+Last major rebuild: June 2026
+
+/* PHILOSOPHY */
+Tujenge Pamoja — let's build something serious together.
+Static HTML is a feature. So is a fast site on a slow connection.

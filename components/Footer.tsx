@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { PageWeightBadge } from "@/components/PageWeightBadge";
 import { site, whatsappLink } from "@/lib/site";
 
 const footerLinks = [
@@ -88,11 +89,14 @@ export function Footer() {
           </div>
         </div>
         <div className="pt-6 border-t border-brand-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            <span className="text-[10px] font-mono text-brand-text-muted uppercase tracking-wider">
-              Dar es Salaam, Tanzania
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <span className="inline-flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              <span className="text-[10px] font-mono text-brand-text-muted uppercase tracking-wider">
+                Dar es Salaam, Tanzania
+              </span>
             </span>
+            <PageWeightBadge />
           </div>
           <div className="text-[10px] font-mono text-brand-text-muted">
             <span className="hidden sm:inline">curl justinecodez.com/api/me · </span>
