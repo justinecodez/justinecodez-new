@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import { ButtonLink } from "@/components/Button";
 import { Section } from "@/components/Section";
-import { Wordmark } from "@/components/Wordmark";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { CtaBand } from "@/components/CtaBand";
 import { featuredCaseStudies } from "@/lib/case-studies";
@@ -61,8 +60,6 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8">
-            <Wordmark className="block text-3xl md:text-5xl mb-6" />
-
             <span className="text-brand-teal text-[11px] font-mono mb-4 block tracking-widest uppercase">
               {"// SOLUTION ARCHITECT · DAR ES SALAAM, TANZANIA"}
             </span>
@@ -168,7 +165,7 @@ export default function HomePage() {
                 <p className="text-brand-text-muted text-xs leading-relaxed flex-grow mt-2">
                   {service.hook}
                 </p>
-                <span className="mt-4 text-[10px] font-mono uppercase tracking-wider text-brand-gold inline-flex items-center gap-1">
+                <span className="mt-4 text-[11px] font-mono font-bold uppercase tracking-wider text-amber-700 group-hover:text-amber-800 inline-flex items-center gap-1">
                   Learn more <ArrowRight size={12} />
                 </span>
               </Link>

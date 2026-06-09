@@ -43,7 +43,7 @@ export function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        <Wordmark sessionKey="jc:wordmark-played" className="text-base md:text-lg" />
+        <Wordmark className="text-base md:text-lg" />
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
