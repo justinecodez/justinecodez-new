@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CommandPalette } from "@/components/CommandPalette";
 import { ConsoleBanner } from "@/components/ConsoleBanner";
+import { Terminal } from "@/components/Terminal";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -112,6 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <CommandPalette />
         <ConsoleBanner />
+        <Terminal />
       </body>
     </html>
   );
