@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Check, MessageCircle } from "lucide-react";
 import { ButtonLink } from "@/components/Button";
 import { CtaBand } from "@/components/CtaBand";
+import { WhatsAppDemo } from "@/components/WhatsAppDemo";
 import { services } from "@/lib/services";
 import { site, whatsappLink } from "@/lib/site";
 
@@ -130,6 +131,15 @@ export default function ServicesPage() {
                   )}
                 </div>
               </div>
+
+              {service.slug === "whatsapp-automation" && (
+                <div className="lg:col-span-12 mt-4">
+                  <h3 className="text-[10px] font-mono uppercase tracking-wider text-brand-text-muted mb-4">
+                    Try it — a scripted sales flow, right here
+                  </h3>
+                  <WhatsAppDemo />
+                </div>
+              )}
             </div>
           </section>
         ))}
