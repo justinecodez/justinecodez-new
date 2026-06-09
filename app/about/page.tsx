@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     title: "About Justine Mahinyila — Solution Architect, Tanzania",
     description:
       "7+ years building fintech systems in Tanzania. Architect by day, founder by conviction. Let's build something serious together.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 

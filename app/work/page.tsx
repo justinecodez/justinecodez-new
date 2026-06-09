@@ -13,7 +13,6 @@ export const metadata: Metadata = {
     title: "Work | Justine Mahinyila — Case Studies",
     description:
       "Fintech infrastructure, WhatsApp automation, marketplaces, event tech, faith tech, and applied AI — challenge, solution, stack, outcome.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 

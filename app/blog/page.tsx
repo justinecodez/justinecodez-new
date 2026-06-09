@@ -13,7 +13,6 @@ export const metadata: Metadata = {
     url: "/blog",
     title: "Writing | Justine Mahinyila",
     description: "Engineering notes from production systems in Tanzania.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 

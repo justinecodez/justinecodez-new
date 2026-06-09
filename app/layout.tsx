@@ -33,14 +33,20 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} | ${site.title}`,
     description: site.description,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} | ${site.title}`,
     description: site.description,
-    images: ["/og-image.jpg"],
+  },
+  icons: {
+    icon: [
+      { url: "/logo/jc-tile-animated.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   robots: { index: true, follow: true },
   alternates: {
@@ -81,7 +87,7 @@ const professionalServiceJsonLd = {
   "@id": `${site.url}/#business`,
   name: "Justine Mahinyila — Solution Architecture & Software Consulting",
   url: site.url,
-  image: `${site.url}/og-image.jpg`,
+  image: `${site.url}/opengraph-image`,
   email: site.email,
   telephone: "+255757714834",
   founder: { "@id": `${site.url}/#person` },

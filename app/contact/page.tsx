@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     title: "Contact Justine Mahinyila — Software Consultant Tanzania",
     description:
       "Let's build something serious together. WhatsApp, email, or the form — whichever is fastest for you.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 

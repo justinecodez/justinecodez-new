@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 110">
+  <style>
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes blink { 0%,49% {opacity:1} 50%,100% {opacity:0} }
+    @keyframes pop { 0% {transform:scale(0)} 70% {transform:scale(1.25)} 100% {transform:scale(1)} }
+    .j { stroke-dasharray:60; stroke-dashoffset:60; animation: draw .45s ease-out forwards; }
+    .c { stroke-dasharray:105; stroke-dashoffset:105; animation: draw .55s ease-out .35s forwards; }
+    .dot { transform-box: fill-box; transform-origin: center; animation: pop .35s ease-out .15s both; }
+    .cursor { opacity:0; animation: blink 1.1s steps(1) 1.15s infinite; }
+    @media (prefers-reduced-motion: reduce){ .j,.c,.dot,.cursor { animation:none; stroke-dashoffset:0; opacity:1; transform:none; } }
+  </style>
+  <g fill="none" stroke="#17181C" stroke-width="12" stroke-linecap="round">
+    <path class="j" d="M34,42 V68 Q34,88 16,88"/>
+    <path class="c" d="M92,47 A22,22 0 1 0 92,81"/>
+  </g>
+  <circle class="dot" cx="34" cy="20" r="7" fill="#17181C"/>
+  <rect class="cursor" x="106" y="76" width="22" height="12" rx="2.5" fill="#F08C00"/>
+</svg>

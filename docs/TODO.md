@@ -34,8 +34,8 @@ Visitor-facing TODO markers were removed from the site; everything pending lives
 ## Assets
 
 - [ ] **Portrait** — confirm `public/justine.jpg` / `justine.webp` are the photos to keep.
-- [ ] **Home/About OG image** — `public/og-image.jpg` is the old static card; case studies now have
-      generated OG images. Consider regenerating the static one to match.
+- [x] **OG images** — all pages now use brand OG images generated at build (root + per case
+      study + blog); the old static `og-image.jpg`/`.png` cards were removed.
 
 ## Deployment
 

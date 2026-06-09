@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     title: "Services | Justine Mahinyila — Software Consultant Tanzania",
     description:
       "Solution architecture, WhatsApp Business automation, custom products, AI implementation, and corporate training — framed around your problem, not the technology.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 

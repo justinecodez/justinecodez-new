@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
+import { BrandMark, brand } from "@/lib/brand";
 import { site } from "@/lib/site";
 
 export const size = { width: 1200, height: 630 };
@@ -24,7 +25,7 @@ export default async function OgImage({ params }: { params: Promise<{ slug: stri
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#0f172a",
+          backgroundColor: brand.ink,
           padding: "72px 80px",
           fontFamily: "sans-serif",
         }}
@@ -43,7 +44,7 @@ export default async function OgImage({ params }: { params: Promise<{ slug: stri
           </div>
           <div
             style={{
-              color: "#f8fafc",
+              color: brand.paper,
               fontSize: 72,
               fontWeight: 700,
               lineHeight: 1.1,
@@ -60,8 +61,8 @@ export default async function OgImage({ params }: { params: Promise<{ slug: stri
               <div
                 key={tag}
                 style={{
-                  color: "#f59e0b",
-                  border: "1px solid rgba(245, 158, 11, 0.4)",
+                  color: brand.orange,
+                  border: "1px solid rgba(240, 140, 0, 0.45)",
                   borderRadius: 4,
                   padding: "8px 18px",
                   fontSize: 22,
@@ -76,12 +77,15 @@ export default async function OgImage({ params }: { params: Promise<{ slug: stri
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              borderTop: "1px solid #1e293b",
+              borderTop: "1px solid #2a2b30",
               paddingTop: 28,
             }}
           >
-            <div style={{ color: "#94a3b8", fontSize: 26 }}>{site.name}</div>
-            <div style={{ color: "#475569", fontSize: 24 }}>justinecodez.com</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+              <BrandMark height={44} color={brand.paper} />
+              <div style={{ color: "#9b9c9f", fontSize: 26 }}>{site.name}</div>
+            </div>
+            <div style={{ color: "#6f7074", fontSize: 24 }}>justinecodez.com</div>
           </div>
         </div>
       </div>

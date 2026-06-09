@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     title: `${site.name} | Solution Architect & Software Consultant in Tanzania`,
     description:
       "Fintech infrastructure, WhatsApp Business automation, custom products, AI, and corporate training — from Dar es Salaam, for serious builders.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 

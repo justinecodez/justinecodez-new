@@ -11,7 +11,6 @@ export const metadata: Metadata = {
     url: "/now",
     title: "Now | Justine Mahinyila",
     description: "What I'm building right now, with dates.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 

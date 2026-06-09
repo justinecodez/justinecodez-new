@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -44,11 +45,10 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link
           href="/"
-          className="text-sm font-semibold tracking-tight text-brand-text flex items-center gap-3 group"
+          className="text-sm font-semibold tracking-tight text-brand-text flex items-center gap-2 group"
+          aria-label="justinecodez — home"
         >
-          <span className="w-8 h-8 rounded-sm bg-gradient-to-br from-brand-gold-light to-brand-gold flex items-center justify-center text-xs font-bold text-white italic transition-transform group-hover:scale-105">
-            JC
-          </span>
+          <Logo className="h-9 w-auto transition-transform group-hover:scale-105" />
           <span className="hidden sm:inline-block">justinecodez</span>
         </Link>
 
