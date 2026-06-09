@@ -43,6 +43,9 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   robots: { index: true, follow: true },
+  alternates: {
+    types: { "application/rss+xml": "/feed.xml" },
+  },
 };
 
 const personJsonLd = {

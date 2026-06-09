@@ -1,0 +1,89 @@
+export const metadata = {
+  title: "Debugging a UTC vs EAT epoch boundary bug in a telecom campaign engine",
+  description:
+    "A campaign engine misbehaved for exactly three hours a day. The root cause: midnight-boundary date bucketing disagreeing between UTC and UTC+3.",
+  alternates: { canonical: "/blog/utc-vs-eat-epoch-boundary-bug" },
+  openGraph: {
+    url: "/blog/utc-vs-eat-epoch-boundary-bug",
+    title: "Debugging a UTC vs EAT epoch boundary bug — Justine Mahinyila",
+    description:
+      "Midnight-boundary date bucketing disagreeing between UTC and UTC+3, in a production campaign engine.",
+  },
+};
+
+<span className="text-brand-teal text-[11px] font-mono block tracking-widest uppercase mb-4 mt-20">// WAR STORY · WORKING DRAFT</span>
+
+# Debugging a UTC vs EAT epoch boundary bug in a telecom campaign engine
+
+**2026-06-10 · Kafka · TypeScript · timezones**
+
+*This post is a working draft — the structure is real, and the full investigation details are
+being written up.*
+
+Tanzania runs on East Africa Time, UTC+3, with no daylight saving. That should make time easy.
+It doesn't — it makes time *quietly wrong*, because UTC+3 means your midnight and the server's
+midnight disagree by exactly three hours, every single day, forever.
+
+This is the story of a campaign engine that worked perfectly for 21 hours a day.
+
+## The symptom
+
+A daily campaign behaved strangely in a specific window: customers who qualified late in the
+evening were treated as if they belonged to the *next* day's campaign run — daily counters reset
+under them, eligibility checks read the wrong bucket, and the numbers between two reporting
+systems refused to reconcile.
+
+The giveaway, in hindsight: every anomaly clustered between **21:00 and 23:59 EAT**. Exactly
+three hours. Exactly the UTC offset.
+
+{/* TODO(Justine): describe the actual first report — which campaign type, who noticed,
+    what the discrepancy looked like in numbers (keep figures NDA-safe). */}
+
+## The investigation
+
+The pipeline processes events through seven stages, and "what day is it?" gets asked more than
+once along the way — at ingestion, at eligibility, and again at reporting.
+
+```ts
+// Stage A — bucketing by server time (UTC on the cluster)
+const day = new Date(event.timestamp).toISOString().slice(0, 10);
+
+// Stage B — bucketing by local business day (EAT, UTC+3)
+const day = formatInTimeZone(event.timestamp, "Africa/Dar_es_Salaam", "yyyy-MM-dd");
+```
+
+Same epoch in, different "day" out — but only for timestamps between 21:00:00 and 23:59:59 EAT,
+when the local date has already rolled over but the UTC date hasn't.
+
+{/* TODO(Justine): walk through the actual debugging steps — log correlation, the moment of
+    reproducing it with a 22:30 EAT timestamp, which stage disagreed with which. */}
+
+## The root cause
+
+Two stages bucketed the same event into different days. Each was *internally* correct.
+The system as a whole was wrong: a classic distributed-systems lesson wearing a timezone costume —
+correctness is a property of the whole pipeline, not of any one stage.
+
+## The fix
+
+One rule, enforced everywhere: **the business day is defined in EAT, and the conversion happens
+in exactly one place.**
+
+```ts
+/** The ONLY function allowed to answer "which business day?" */
+export function businessDay(epochMs: number): string {
+  return formatInTimeZone(epochMs, "Africa/Dar_es_Salaam", "yyyy-MM-dd");
+}
+```
+
+Everything downstream consumes the bucket; nothing recomputes it.
+
+{/* TODO(Justine): add the rollout details — backfill strategy for the mis-bucketed window,
+    and the regression test that pins 20:59/21:00/23:59 EAT boundary cases. */}
+
+## Lessons
+
+1. If anomalies cluster in a window whose width equals your UTC offset, you already know the bug.
+2. "What day is it?" is a business question, not a `Date` method. Answer it once, in one function.
+3. Store epochs, render zones. Every derived date is a cache of a decision — make the decision once.
+4. Boundary tests belong at 20:59, 21:00, and 23:59 EAT — not at noon, where everything passes.

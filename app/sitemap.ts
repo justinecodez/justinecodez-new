@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { caseStudies } from "@/lib/case-studies";
+import { posts } from "@/lib/posts";
 import { site } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -16,7 +17,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/uses`, lastModified, changeFrequency: "monthly", priority: 0.4 },
     { url: `${site.url}/now`, lastModified, changeFrequency: "weekly", priority: 0.5 },
     { url: `${site.url}/changelog`, lastModified, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${site.url}/blog`, lastModified, changeFrequency: "weekly", priority: 0.6 },
   ];
+
+  const blogPosts: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${site.url}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
 
   const studies: MetadataRoute.Sitemap = caseStudies.map((study) => ({
     url: `${site.url}/work/${study.slug}`,
@@ -25,5 +34,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...pages, ...studies];
+  return [...pages, ...studies, ...blogPosts];
 }
