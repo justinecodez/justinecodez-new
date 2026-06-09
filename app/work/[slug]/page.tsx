@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Lock } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { WhatsAppDemo } from "@/components/WhatsAppDemo";
+import { PipelineDiagram } from "@/components/PipelineDiagram";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
 import { site } from "@/lib/site";
 
@@ -108,6 +109,15 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
               <Block label="THE CHALLENGE" paragraphs={study.challenge} />
               <Block label="THE SOLUTION" paragraphs={study.solution} />
+
+              {study.slug === "telecom-cvm-engine" && (
+                <div className="mb-12">
+                  <h2 className="text-brand-teal text-[11px] font-mono tracking-widest uppercase mb-4">
+                    {"// HOW IT FLOWS"}
+                  </h2>
+                  <PipelineDiagram />
+                </div>
+              )}
 
               {study.slug === "mpenyo-whatsapp-sales-bot" && (
                 <div className="mb-12">

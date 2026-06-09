@@ -46,3 +46,42 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Traveling dot for the pipeline diagram */
+.pipeline-dot {
+  position: absolute;
+  left: -3px;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--color-brand-gold);
+  box-shadow: 0 0 8px var(--color-brand-gold-light);
+  animation: pipeline-flow 7s linear infinite;
+}
+
+@keyframes pipeline-flow {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 8px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .pipeline-dot {
+    display: none;
+  }
+}
